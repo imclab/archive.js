@@ -1,7 +1,7 @@
 class window.Archive
   constructor: (@buffer) ->
 
-  load: (url) ->
+  load: (url, callback=->) ->
     xhr = new XMLHttpRequest()
     xhr.open('GET', url, true)
     xhr.responseType = 'arraybuffer'
@@ -10,6 +10,7 @@ class window.Archive
       if (this.status == 200)
         self.buffer = this.response
         self.type = self.TAR_CONTAINER
+        callback.call self
         return
     xhr.send();
     xhr

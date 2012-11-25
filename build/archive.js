@@ -16,8 +16,11 @@
       this.buffer = buffer;
     }
 
-    Archive.prototype.load = function(url) {
+    Archive.prototype.load = function(url, callback) {
       var self, xhr;
+      if (callback == null) {
+        callback = function() {};
+      }
       xhr = new XMLHttpRequest();
       xhr.open('GET', url, true);
       xhr.responseType = 'arraybuffer';
@@ -26,6 +29,7 @@
         if (this.status === 200) {
           self.buffer = this.response;
           self.type = self.TAR_CONTAINER;
+          callback.call(self);
         }
       };
       xhr.send();

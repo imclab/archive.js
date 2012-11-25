@@ -34,10 +34,8 @@ test( "Loading archive", function() {
 
   stop();
   var archive2 = new Archive();
-  archive2.load("files/test1.tar");
-  setTimeout(function() {
+  archive2.load("files/test1.tar", function() {
     ok( archive2.buffer instanceof ArrayBuffer, "Loading ArrayBuffer through XHR" );
-
 
     var fileList = archive2.getFiles();
 
@@ -53,7 +51,7 @@ test( "Loading archive", function() {
 
     start();
 
-  }, 150 );
+  });
 
 
 });
