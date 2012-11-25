@@ -1,0 +1,12 @@
+{
+  "title": "archive.js",
+  "name": "archive",
+  "description": "File archive management library in JavaScript",
+  "version": "0.1.0",
+  "author": {
+    "name":"Niklas von Hertzen (@niklasvh)"
+  },
+  "homepage": "https://github.com/niklasvh/archive.js",
+  "licenses": [{"type": "MIT"}]
+
+}
